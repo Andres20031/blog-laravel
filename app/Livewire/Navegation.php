@@ -2,12 +2,14 @@
 
 namespace App\Livewire;
 
+use App\Models\Category;
 use Livewire\Component;
 
 class Navegation extends Component
 {
     public function render()
     {
-        return view('livewire.navegation');
+        $categories = Category::all();
+        return view('livewire.navegation', compact('categories'));
     }
 }
