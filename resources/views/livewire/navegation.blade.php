@@ -21,9 +21,10 @@
         </div>
         <div class="hidden lg:flex lg:gap-x-12" x-data="{ open: false }">
             @foreach ($categories as $category)
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">{{$category->name}}</a>
+                <a href="{{ route('posts.category',$category)}}" class="text-sm font-semibold leading-6 text-gray-900">{{$category->name}}</a>
             @endforeach
-            
+            <a href="/admin" class="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
+          
             
 
             <form method="POST" action="{{ route('logout') }}" x-data>
@@ -41,7 +42,7 @@
                         <img class="h-8 w-auto" src="{{ auth()->user()->profile_photo_url }}" alt="User Profile">
                     </a>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900"><strong>Log in
+                    <a      href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900"><strong>Log in
                         </strong></a>
                     <span>&nbsp;</span>
                     <a href="{{ route('register') }}" class="text-sm font-semibold leading-6 text-gray-900">
@@ -76,7 +77,7 @@
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="space-y-2 py-6">                       
                         @foreach ($categories as $category)
-                        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">{{$category->name}}</a>
+                        <a href="{{ route('posts.category',$category)}}" class="text-sm font-semibold leading-6 text-gray-900">{{$category->name}}</a>
                     @endforeach                        
                     </div>
                     <div class="py-6">
