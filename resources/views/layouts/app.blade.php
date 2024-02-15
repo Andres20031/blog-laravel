@@ -23,12 +23,11 @@
         <div class="min-h-screen bg-gray-100">
             @livewire('navegation')
 
-             
             <!-- Page Heading -->
             @if (isset($header))
                 
             @endif
-
+           
             <!-- Page Content -->
             <main>
                 {{ $slot }}
