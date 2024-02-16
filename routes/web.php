@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
@@ -16,7 +17,11 @@ Route::get('tag/{tag}', [PostController::class, 'tag'])->name('posts.tag');
 Route::get('/admin' , function(){
     return view('posts.admin');
 });
-Route::middleware([
+
+
+
+
+Route::middleware([ 
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',

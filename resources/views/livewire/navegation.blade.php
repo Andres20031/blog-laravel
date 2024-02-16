@@ -23,7 +23,7 @@
             @foreach ($categories as $category)
                 <a href="{{ route('posts.category',$category)}}" class="text-sm font-semibold leading-6 text-gray-900">{{$category->name}}</a>
             @endforeach
-            <a href="/admin" class="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
+            <a href="{{route('admin.home')}}" class="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
           
             
 

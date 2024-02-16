@@ -301,11 +301,7 @@ return [
             'topnav_right' => true,
         ],
 
-        // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
+      
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -313,15 +309,20 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'url'         => 'admin',
+            'route'         => 'admin.home',
             'icon'        => 'fa-solid fa-gauge',
         
         ],
         ['header' => 'Administrador'],
         [
             'text' => 'Categoria',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'route'  => 'admin.categories.index',
+            'icon' => 'fab fa-fw fa-buffer',
+        ],
+        [
+            'text' => 'Tags',
+            'route'  => 'admin.tags.index',
+            'icon' => 'fab fa-fw fa-buffer',
         ],
         [
             'text' => 'change_password',

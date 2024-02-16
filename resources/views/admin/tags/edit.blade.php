@@ -3,11 +3,11 @@
 @section('title','Blog')
 
 @section('content_header')
-    <h1>Aqui podrar ver todas la categorias</h1>
+    <h1>Mostrar detalle de categoria</h1>
 @endsection
 
 @section('content')
-    
+    <p>welcome to this beautiful admin panel</p>
 @stop
 
 @section('css')
