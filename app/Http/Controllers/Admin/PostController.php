@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\storePostRequest;
 class PostController extends Controller
 {
     /**
@@ -21,18 +23,25 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::pluck('name', 'id');
+        $tags = Tag::all();
+        return view('admin.posts.create', compact('categories','tags'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(storePostRequest $request)
     {
-        //
+       $post = Post::create($request->all());
+       if($request->tags)
+       {
+          $post->tags()->attach($request->tags);
+       }
+       return  redirect()->route('admin.posts.edit',$post);
     }
 
-    /**
+    /**     
      * Display the specified resource.
      */
     public function show(Post $posts)
@@ -45,7 +54,7 @@ class PostController extends Controller
      */
     public function edit(Post $posts)
     {
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.posts.edit', compact('posts'));
     }
 
     /**
