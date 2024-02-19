@@ -60,22 +60,29 @@
 <div class="row mb-3">
     <div class="col">
         <div class="image-wrapper">
-            <img id="picture" src="" alt="">
+            @isset ($post->image)
+                <img id="picture" src="{{Storage::url($post->image->url)}}" alt="">
+            @else 
+                <img id="picture" src="" alt="">
+            @endisset
+           
         </div>
 
     </div>
     <div class="col">
         {!! Form::label('file', 'Imagen que se mostrará en el post') !!}
-        {!! Form::file('file', ['class'=>'form-control-file', 'id'=>'file-input']) !!}
+        {!! Form::file('file', ['class' => 'form-control-file', 'id' => 'file-input']) !!}
 
         @error('file')
-        <span class="text-danger">{{ $message }}</span>
-    @enderror
-         <div>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos laboriosam accusantium debitis obcaecati sint corporis. Accusamus, deserunt laudantium tempora repellendus amet quibusdam nulla quidem facilis excepturi necessitatibus quis non. Ea?</p>
-           </div>
-     </div>
- 
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
+        <div>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos laboriosam accusantium debitis obcaecati
+                sint corporis. Accusamus, deserunt laudantium tempora repellendus amet quibusdam nulla quidem facilis
+                excepturi necessitatibus quis non. Ea?</p>
+        </div>
+    </div>
+
 </div>
 
 <div class="form-group">
