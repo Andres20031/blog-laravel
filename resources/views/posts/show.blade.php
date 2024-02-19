@@ -11,7 +11,12 @@
              
                 <div class="col-span-2 ">
                     <figure>
+                        @if ($post->image)
                         <img class="w-full h-80 object-cover object-center mt-4" src="{{Storage::url($post->image->url)}}" alt="">
+                        @else
+                        <img class="w-full h-80 object-cover object-center mt-4" src="https://cdn.pixabay.com/photo/2024/01/25/23/06/iceberg-8532935_1280.jpg" alt="">
+                        @endif
+                      
                     </figure>
                     <div class="text-base text-gray-500 mt-4">{{$post->body}}</div>
                 </div>
@@ -21,10 +26,18 @@
                     <ul>
                         @foreach ($similares as $similar)
                         <li>
+                            @if ($similar->image)
                             <a class="flex mb-4" href="{{route('posts.show',$similar)}}">
                                 <img class="max-w-36 max-h-20 object-center" src="{{ Storage::url($similar->image->url) }}" alt="">
 
                             <span class="ml-2 text-gray-600">{{$similar->name}}</span></a>
+                            @else
+                            <a class="flex mb-4" href="{{route('posts.show',$similar)}}">
+                                <img class="max-w-36 max-h-20 object-center" src="https://cdn.pixabay.com/photo/2024/01/25/23/06/iceberg-8532935_1280.jpg" alt="">
+
+                            <span class="ml-2 text-gray-600">{{$similar->name}}</span></a> 
+                            @endif
+                            
                            
                         </li>
                         

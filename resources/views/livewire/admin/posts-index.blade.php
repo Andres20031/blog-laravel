@@ -20,11 +20,11 @@
                         <td>{{$post->id}}</td>
                         <td>{{$post->name}}</td>
                         <td width="10px">
-                            <a class="btn btn-primary btn-sm" href="{{route('admin.posts.edit',$posts)}}">Editar</a>
+                            <a class="btn btn-primary btn-sm" href="{{route('admin.posts.edit',$post)}}">Editar</a>
 
                         </td>
                         <td witdh="10px">
-                            <form action="{{route('admin.posts.destroy',$posts)}}" method="post">
+                            <form action="{{route('admin.posts.destroy',$post)}}" method="post">
                             @csrf
                             @method('DELETE')
                             

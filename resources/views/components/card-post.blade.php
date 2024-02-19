@@ -1,8 +1,12 @@
 @props(['post'])
 
 <article class="mb-5 bg-white shadow-lg rounded-lg">
-    <img class="w-full h-80 object-cover object-center mt-4 rounded-lg" src="{{ Storage::url($post->image->url) }}" alt="">
 
+    @if($post->image)
+     <img class="w-full h-80 object-cover object-center mt-4 rounded-lg" src="{{ Storage::url($post->image->url) }}" alt="">
+    @else
+    <img class="w-full h-80 object-cover object-center mt-4 rounded-lg" src="https://cdn.pixabay.com/photo/2024/01/25/23/06/iceberg-8532935_1280.jpg" alt="">
+    @endif
     <div class="px-4 py-3">
         <h1 class="font-bold text-xl mb-2">
             <a href="{{ route('posts.show', $post) }}">{{ $post->name }}</a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests\storePostRequest;
 class PostController extends Controller
@@ -33,7 +34,15 @@ class PostController extends Controller
      */
     public function store(storePostRequest $request)
     {
+       
        $post = Post::create($request->all());
+       if ($request->file('file')) {
+          $url = Storage::put('public/posts', $request->file('file'));
+
+          $post->image()->create([
+            'url' => $url
+          ]);
+       }
        if($request->tags)
        {
           $post->tags()->attach($request->tags);
@@ -52,10 +61,12 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $posts)
-    {
-        return view('admin.posts.edit', compact('posts'));
-    }
+    public function edit(Post $post )
+        {
+            $categories = Category::pluck('name', 'id');
+            $tags = Tag::all();           
+            return view('admin.posts.edit', compact('post','categories','tags'));
+        }
 
     /**
      * Update the specified resource in storage.
@@ -68,9 +79,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $posts)
+    public function destroy(Post $post)
     {
-        $posts->delete();
+        
+        $post->delete();
         return redirect()->route('admin.posts.index');
     }
 }
