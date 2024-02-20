@@ -14,6 +14,7 @@ class CategoryFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    // Esta funcion se utiliza para generar datos en el cual cada uno tenga un nombre diferente esto permite llenar la base de datos con datos falsos
     public function definition(): array
     {
         $name = $this->faker->unique()->word(20);

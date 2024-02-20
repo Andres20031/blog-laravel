@@ -14,6 +14,8 @@ class ImageFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    // Esta funcion se utiliza al definir una fabrica de modelos en laravel para generar datos de prueba para un modelo especifico en este caso, se esta generando una url 
+    // simulada para un recurso de tipo posts junto con una imagen simulada ubicada en la carpe () esto es util para pruebas o para llenar la base de datos con datos de prueba consistentes
     public function definition(): array
     {
         return [

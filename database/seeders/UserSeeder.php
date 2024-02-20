@@ -13,11 +13,14 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name'=> 'Andres carmona',
-            'email'=>'andrescarmonaztxt2003@gmail.com',
-            'password'=> bcrypt('12345678')
-        ])->assignRole('Admin');
+       // el metodo user create  crea un nuevo usuario en la base de datos  utilizando el modelo user
+       // el codigo proporciona informacion para los campos 'name' 'email' y 'password'
+       // assignRole('Admin') Despues de crear el usuario asigna el rol 'Admin' en el sistema El metodo 'assignRole()' es comun en sistemas basados en roles y control de acceso para asignar roles especificos a los usuarios
+            User::create([
+                'name'=> 'Andres carmona',
+                'email'=>'andrescarmonaztxt2003@gmail.com',
+                'password'=> bcrypt('12345678')
+            ])->assignRole('Admin');
         User::factory(9)->create();
     }
 }

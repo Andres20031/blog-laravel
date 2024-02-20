@@ -17,6 +17,9 @@ class PostsIndex extends Component
         $this->resetPage();
     }
 
+    // esta funcion obtiene una lista paginada  de la publicaciones del usuario autenticado que coinciden 
+    // con el criterio de busqueda especificado y la devuelve a la vista correspondiente para ser renderizada en la interfaz de usuario.
+    // es comun en aplicaciones web para la gestion y visualizacion de recursos, como las publicaciones de un usuario en un panel de administracion
     public function render()
     {
         $posts = Post::where('user_id', auth()->user()->id)
