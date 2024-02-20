@@ -101,8 +101,7 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Post $post)
-    {
-        
+    {   
         $this->authorize('author' , $post);
         $post->delete();
         return redirect()->route('admin.posts.index')->with('info', 'El post Se ha eliminado Correctamente');

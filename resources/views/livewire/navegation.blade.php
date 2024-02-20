@@ -39,7 +39,7 @@
                 <span class="sr-only">Your Company</span>
                 @auth
                     <a href="{{ route('profile.show') }}">
-                        <img class="h-8 w-auto" src="{{ auth()->user()->profile_photo_url }}" alt="User Profile">
+                        <img class="h-8 w-8 rounded" src="{{ auth()->user()->profile_photo_url }}" alt="User Profile">
                     </a>
                 @else
                     <a      href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900"><strong>Log in
@@ -89,4 +89,4 @@
             </div>
         </div>
     </div>
-</header>
+</header>   
