@@ -23,8 +23,12 @@
             @foreach ($categories as $category)
                 <a href="{{ route('posts.category',$category)}}" class="text-sm font-semibold leading-6 text-gray-900">{{$category->name}}</a>
             @endforeach
+
+            @can('admin.home')
             <a href="{{route('admin.home')}}" class="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
           
+            @endcan
+            
             
 
             <form method="POST" action="{{ route('logout') }}" x-data>

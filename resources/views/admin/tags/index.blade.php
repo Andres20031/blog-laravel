@@ -3,7 +3,9 @@
 @section('title', 'Blog')
 
 @section('content_header')
-    <a class="btn btn-primary btn-sm float-right" href="{{route('admin.tags.create')}}">Nueva Etiqueta</a>
+    @can('admin.users.index')
+        <a class="btn btn-primary btn-sm float-right" href="{{ route('admin.tags.create') }}">Nueva Etiqueta</a>
+    @endcan
     <h1>Listar las etiquetas</h1>
 @endsection
 
@@ -26,14 +28,19 @@
                         <td>{{ $tag->id }}</td>
                         <td>{{ $tag->name }}</td>
                         <td width="10px">
+                            @can('admin.users.index')
                             <a class="btn btn-primary btn-sm" href="{{ route('admin.tags.edit', $tag) }}">Editar</a>
+                            @endcan
+                            
                         </td>
                         <td width="10px">
+                            @can('admin.users.index')
                             <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger btn-sm">eliminar</button>
                             </form>
+                            @endcan
                         </td>
                     </tr>
                 @endforeach

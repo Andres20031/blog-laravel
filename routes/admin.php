@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\UserController;
 
 Route::get('dash',[HomeController::class, 'index'])->name('admin.home');
 
-Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->names('admin.users');
+Route::resource('users', UserController::class)->middleware('can:admin.users.index')->only(['index', 'edit', 'update'])->names('admin.users');
 
 // Esta ruta me permite ir a el controlador de categorias 
 Route::resource('categories', CategoryController::class)->names('admin.categories');

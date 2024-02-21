@@ -45,19 +45,5 @@
     <div class="card-footer">
         {{ $posts->links() }}
     </div>
-    <div class="form-group">
-        {!! Form::label('extract', 'Extracto:') !!}
-        {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
-        @error('extract')
-            <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
     
-    <div class="form-group">
-        {!! Form::label('body', 'Cuerpo del post:') !!}
-        {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
-        @error('body')
-            <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
 </div>
