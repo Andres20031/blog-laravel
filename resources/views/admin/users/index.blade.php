@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <p>welcome to this beautiful admin panel</p>
+    @livewire('admin.users-index')
 @stop
 
 @section('css')
