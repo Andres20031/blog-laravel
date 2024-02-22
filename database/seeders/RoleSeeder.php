@@ -20,29 +20,29 @@ class RoleSeeder extends Seeder
         $role2 = Role::create(['name' => 'Bloger']);
 
         //Crea otro permiso en la base de datos con el nombre admin.categories.index y los sincroniza con los roles admin y bloger este permiso los sincroniza con la vista de el administrador
-        Permission::create(['name' => 'admin.home'])->syncRoles([$role1,$role2]);
+        Permission::create(['name' => 'admin.home','description'=>'Ver el dashboard'])->syncRoles([$role1,$role2]);
 
         //con este metodo permito al rol admin  poder acceder a el crud de 
-        Permission::create(['name' => 'admin.users.index'])->syncRoles([$role1]);
-        Permission::create(['name' => 'admin.users.edit'])->syncRoles([$role1]);
-        Permission::create(['name' => 'admin.users.update'])->syncRoles([$role1]);
-
+        Permission::create(['name' => 'admin.users.index','description'=>'Ver Listado de usuario'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.users.edit','description'=>'Asignar un rol'])->syncRoles([$role1]);
+    
         //con este metodo le permito al rol admin y al rol bloguer poder acceder a el crud de categorias
-        Permission::create(['name' => 'admin.categories.index'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.categories.create'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.categories.edit'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.categories.destroy'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'admin.categories.index','description'=>'Ver categorias'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'admin.categories.create','description'=>'Crear Categorias'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'admin.categories.edit','description'=>'Editar Categorias'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'admin.categories.destroy','description'=>'Eliminar Categorias'])->syncRoles([$role1, $role2]);
 
         // Con este metodo le permito al rol admin y al rol bloger poder acceder a el crud de etiquetas 
-        Permission::create(['name' => 'admin.tags.index'])->syncRoles([$role1,$role2]);
-        Permission::create(['name' => 'admin.tags.create'])->syncRoles([$role1,$role2]);
-        Permission::create(['name' => 'admin.tags.edit'])->syncRoles([$role1,$role2]);
-        Permission::create(['name' => 'admin.tags.destroy'])->syncRoles([$role1,$role2]);
+        Permission::create(['name' => 'admin.tags.index','description'=>'Ver etiquetas'])->syncRoles([$role1,$role2]);
+        Permission::create(['name' => 'admin.tags.create','description'=>'Crear Etiquetas'])->syncRoles([$role1,$role2]);
+        Permission::create(['name' => 'admin.tags.edit','description'=>'Editar Etiquetas'])->syncRoles([$role1,$role2]);
+        Permission::create(['name' => 'admin.tags.destroy','description'=>'Eliminar Etiquetas'])->syncRoles([$role1,$role2]);
 
         // Con este metodo le permito al rol admin y al rol bloger poder acceder a el crud de post
-        Permission::create(['name' => 'admin.posts.index'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.posts.create'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.posts.edit'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' => 'admin.posts.destroy'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'admin.posts.index','description'=>'Ver publicaciones'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'admin.posts.create','description'=>'Crear Publicaciones'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'admin.posts.edit','description'=>'Editar publicaciones'])->syncRoles([$role1, $role2]);
+        Permission::create(['name' => 'admin.posts.destroy','description'=>'Eliminar Publicaciones'])->syncRoles([$role1, $role2]);
     }
 }
+ 

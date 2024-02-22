@@ -18,9 +18,7 @@ Route::get('/admin' , function(){
     return view('posts.admin');
 });
 
-
-
-
+    
 Route::middleware([ 
     'auth:sanctum',
     config('jetstream.auth_session'),
