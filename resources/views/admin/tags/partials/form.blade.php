@@ -4,6 +4,7 @@
         'class' => 'form-control',
         'placeholder' => 'Ingrese el nombre de la etiqueta',
         'id' => 'name',
+        'maxlength' => 100
     ]) !!}
 
     @error('name')

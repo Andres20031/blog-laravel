@@ -21,6 +21,7 @@
                     'class' => 'form-control',
                     'placeholder' => 'Ingrese el nombre de la categoria',
                     'id' => 'name',
+                    'maxlength' => 100
                 ]) !!}
 
                 @error('name')

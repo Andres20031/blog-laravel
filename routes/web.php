@@ -13,8 +13,9 @@ Route::get('/category/{category}', [PostController::class, 'category'])->name('p
 
 Route::get('tag/{tag}', [PostController::class, 'tag'])->name('posts.tag');
 
-Route::post('postsdash/{post}/{user}',[PostController::class, 'comment'])->name('post.comment');
+Route::post('postsdashcomment/{post}/{user}', [PostController::class, 'comment'])->name('post.comment');
 
+Route::get('postscomment/{post}', [PostController::class, 'commentshow'])->name('post.commentshow');
 
 Route::get('/admin' , function(){
     return view('posts.admin');

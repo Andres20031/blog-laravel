@@ -25,7 +25,8 @@ class PostController extends Controller
     }
     public function show(Post $post)
     {
-
+        $comentarios = $post->comments;
+        $comentarios= Post::find($post->id)->comments;
         $user = Auth::user();
         $this->authorize('published', $post);
         $similares = Post::where('category_id', $post->category_id)
@@ -34,8 +35,7 @@ class PostController extends Controller
             ->latest('id')
             ->take(4)
             ->get();
-
-        return view('posts.show', compact('post', 'similares', 'user'));
+        return view('posts.show', compact('post', 'similares', 'user','comentarios'));
     }
     public function category(Category $category)
     {
@@ -51,20 +51,35 @@ class PostController extends Controller
 
         return view('posts.tag', compact('posts', 'tag'));
     }
-    public function comment(Request $request, Post $post, User $users)
+    public function comment(Request $request, Post $post)
     {
         $user = Auth::user();
-
+        $comentarios= Post::find($post->id)->comments;
         $request->validate([
-            'name' => 'required|string'
+            'comment' => 'required|string'
         ]);
-
-        $comment = Comments::create([
-            'name' => $request->input('name'),
+    
+        Comments::create([
+            'name' => $request->input('comment'),
             'user_id' => $user->id,
             'post_id' => $post->id,
         ]);
-
-        return 'hola';
+    
+        return redirect()->route('posts.show', compact('post', 'comentarios'));
     }
+
+   public function commentshow(Post $post){
+
+      $comentarios= Post::find($post->id)->comments;
+      $user = Auth::user();
+      $this->authorize('published', $post);
+      $similares = Post::where('category_id', $post->category_id)
+          ->where('status', 2)
+          ->where('id', '!=', $post)
+          ->latest('id')
+          ->take(4)
+          ->get();
+      return view('posts.show', compact('comentarios','similares', 'post', 'user'));
+     
+   }
 }

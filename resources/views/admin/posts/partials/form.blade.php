@@ -2,8 +2,9 @@
     {!! Form::label('name', 'Nombre') !!}
     {!! Form::text('name', null, [
         'class' => 'form-control',
-        'placeholder' => 'Ingrese el nombre de la categoria',
+        'placeholder' => 'Ingrese el nombre de el post',
         'id' => 'name',
+        'maxlength' => 100,
     ]) !!}
 
     @error('name')
