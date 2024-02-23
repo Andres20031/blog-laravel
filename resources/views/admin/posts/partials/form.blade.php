@@ -61,12 +61,12 @@
 <div class="row mb-3">
     <div class="col">
         <div class="image-wrapper">
-            @isset ($post->image)
-                <img id="picture" src="{{Storage::url($post->image->url)}}" alt="">
-            @else 
+            @isset($post->image)
+                <img id="picture" src="{{ Storage::url($post->image->url) }}" alt="">
+            @else
                 <img id="picture" src="" alt="">
             @endisset
-           
+
         </div>
 
     </div>
@@ -77,11 +77,7 @@
         @error('file')
             <span class="text-danger">{{ $message }}</span>
         @enderror
-        <div>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos laboriosam accusantium debitis obcaecati
-                sint corporis. Accusamus, deserunt laudantium tempora repellendus amet quibusdam nulla quidem facilis
-                excepturi necessitatibus quis non. Ea?</p>
-        </div>
+
     </div>
 
 </div>

@@ -310,21 +310,18 @@ return [
         [
             'text'        => 'Dashboard',
             'route'         => 'admin.home',
-            'icon'        => 'fa-solid fa-gauge',
             'can'        =>  'admin.home'   
         
         ],
         [
             'text'        => 'Usuarios',
             'route'         => 'admin.users.index',
-            'icon'        => 'fas fa-users fa-fw',
             'can'         => 'admin.users.index'
         
         ],  
         [
             'text'        => 'Roles',
             'route'         => 'admin.roles.index',
-            'icon'        => 'fas fa-users-cog fa-fw',
             'can'         => 'admin.users.index'
         
         ],  
@@ -332,14 +329,12 @@ return [
         [
             'text' => 'Categoria',
             'route'  => 'admin.categories.index',
-            'icon' => 'fab fa-fw fa-buffer',
             'active'=>  ['admin/categoris*'],
             'can'   =>  'admin.categories.index'
         ],
         [
             'text' => 'Tags',
             'route'  => 'admin.tags.index',
-            'icon' => 'far fa-fw fa-bookmark',
             'active' => ['admin/tags*'],
             'can' =>  'admin.tags.index'
         ],
@@ -350,13 +345,11 @@ return [
         [
             'text'       => 'Lista de post',
             'route'        => 'admin.posts.index',
-            'icon'       => 'fas fa-fw fa-clipboard',
             'can'   =>   'admin.posts.index'
         ],
         [
             'text'       => 'Crear nuevo post',
             'route'        => 'admin.posts.create',
-            'icon'       => 'fas fa-fw fa-file',
             'can'       => 'admin.posts.create'
         ],
     ],

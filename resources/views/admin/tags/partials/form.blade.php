@@ -29,6 +29,5 @@
 
 <div class="form-group">
 
-    {!! Form::label('color', 'Color:') !!}
-    {!! Form::select('color', $colors, null, ['class' => 'form-control']) !!}
-</div>
+    {!! Form::select('color', $colors, 'red', ['class' => 'form-control', 'style' => 'display: none;', 'id' => 'hiddenColorInput']) !!}
+</div> 

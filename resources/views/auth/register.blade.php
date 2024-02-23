@@ -1,8 +1,8 @@
 <x-guest-layout>
     <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+        <div style="text-align: center;">
+            <img src="https://cdn-icons-png.flaticon.com/512/10026/10026257.png" alt="" style="width: 50px; height: 50px; display: inline-block;">
+       </div>
 
         <x-validation-errors class="mb-4" />
 
@@ -51,6 +51,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
+               
                 <x-button class="ms-4">
                     {{ __('Register') }}
                 </x-button>
