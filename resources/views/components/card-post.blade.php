@@ -1,9 +1,9 @@
 @props(['post'])
 
 <article class="mb-5 bg-white shadow-lg rounded-lg">
-
+   
     @if($post->image)
-     <img class="w-full h-80 object-cover object-center mt-4 rounded-lg" src="{{ Storage::url($post->image->url) }}" alt="">
+     <img class="w-50 h-100 object-cover object-center mt-3 rounded-lg" src="{{ Storage::url($post->image->url) }}" alt="">
     @else
     <img class="w-full h-80 object-cover object-center mt-4 rounded-lg" src="https://cdn.pixabay.com/photo/2024/01/25/23/06/iceberg-8532935_1280.jpg" alt="">
     @endif

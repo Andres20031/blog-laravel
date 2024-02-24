@@ -301,18 +301,13 @@ return [
             'topnav_right' => true,
         ],
 
-      
+        ['header' => 'Usuarios'],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'Dashboard',
-            'route'         => 'admin.home',
-            'can'        =>  'admin.home'   
-        
-        ],
+       
         [
             'text'        => 'Usuarios',
             'route'         => 'admin.users.index',
@@ -325,7 +320,7 @@ return [
             'can'         => 'admin.users.index'
         
         ],  
-        ['header' => 'Administrador'],
+        ['header' => 'Categorias'],
         [
             'text' => 'Categoria',
             'route'  => 'admin.categories.index',
@@ -340,7 +335,7 @@ return [
         ],
        
         
-        ['header' => 'Opciones de blog'],
+        ['header' => 'Publicaciones'],
         
         [
             'text'       => 'Lista de post',
