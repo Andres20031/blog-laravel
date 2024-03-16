@@ -8,12 +8,12 @@
     
 @enderror
 
-<h2 class="h3"> Lista de permisos</h2>
+<h2 class="h3">Lista de permisos</h2>
 @foreach ($permissions as $permission)
     <div>
         <label>
-            {!! Form::checkbox('permission[]', $permission->id, null,  ['class'=> 'mr-1']) !!}
+            {!! Form::checkbox('permissions[]', $permission->id, null, ['class' => 'mr-1']) !!}
             {{$permission->description}}
         </label>
-    </div> 
+    </div>
 @endforeach

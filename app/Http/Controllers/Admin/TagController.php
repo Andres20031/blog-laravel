@@ -22,12 +22,9 @@ class TagController extends Controller
      */
     public function create()
     {
-        $colors  = [
-            'red' => 'Color rojo', 'yellow' => 'Color amarillo', 'green' => 'Color verde', 'blue' => 'Color azul',
-            'indigo' => 'color indigo', 'purple' => 'color purpura', 'pink' => 'Color rosado'
-        ];
-        return view('admin.tags.create', compact('colors'));
-    }
+        
+        return view('admin.tags.create');
+    }   
 
     /**
      * Store a newly created resource in storage.
@@ -36,8 +33,7 @@ class TagController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'slug' => 'required|unique:tags',
-            'color' => 'required'
+            'slug' => 'required|unique:tags'
         ]);
 
         $tag = Tag::create($request->all());
@@ -59,11 +55,8 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        $colors  = [
-            'red' => 'Color rojo', 'yellow' => 'Color amarillo', 'green' => 'Color verde', 'blue' => 'Color azul',
-            'indigo' => 'color indigo', 'purple' => 'color purpura', 'pink' => 'Color rosado'
-        ];
-        return view('admin.tags.edit', compact('tag', 'colors'));
+        
+        return view('admin.tags.edit', compact('tag'));
     }
 
     /**
@@ -74,7 +67,7 @@ class TagController extends Controller
         $request->validate([
             'name' => 'required',
             'slug' => "required|unique:tags,slug,$tag->id",
-            'color' => 'required'   
+              
         ]);
         $tag->update($request->all());
         return redirect()->route('admin.tags.edit',$tag)->with('info', 'La etiqueta se edito correctamente');

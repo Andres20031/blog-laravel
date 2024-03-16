@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Event;
 use App\Models\Post;
 use App\Observers\PostObserver;
 
-
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -20,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+        'App\Events\UserLoggedIn' => [
+            'App\Listeners\ProcessUserLogin',
         ],
     ];
 

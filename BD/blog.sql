@@ -1,3 +1,7 @@
+--APP_URL=http://10.25.6.190:8001 npm run dev -- --host=0.0.0.0 --port=8001
+--php artisan ser --host=10.25.6.190 --port=8000
+
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/

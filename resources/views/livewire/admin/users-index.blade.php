@@ -1,10 +1,6 @@
+
 <div>
     <div class="card">
-     {{$search}}
-     <div class="card-header">
-         <input wire:model="search" class="form-control" placeholder="Ingrese el nombre o correo de un usuario">
-     </div>
-
      @if ($users->count())
      <div class="card-body">
         <table class="table table-stripped">
@@ -22,9 +18,11 @@
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
+                        @can('admin.users.edit')
                         <td width="10px"> 
                             <a class="btn btn-primary" href="{{route('admin.users.edit', $user)}}">Editar</a>
                         </td>
+                        @endcan
                     </tr>
                 @endforeach
             </tbody>
@@ -41,5 +39,6 @@
    
         
     </div>
+  
  </div>
  

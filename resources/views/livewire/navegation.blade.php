@@ -1,96 +1,51 @@
-<header class="bg-white" x-data="{ open: false }">
-    <!-- Include Alpine.js script -->
-    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div class="flex lg:flex-1">
-            <a href="/" class="-m-1.5 p-1.5">
-                <span class="sr-only">Your Company</span>
-                <img class="h-8 w-auto" src="https://cdn-icons-png.flaticon.com/512/10026/10026257.png "
-                    alt="">
-            </a>
-        </div>
-        <div class="flex lg:hidden">
-            <button type="button"
-                class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                <span class="sr-only">Open main menu</span>
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
-        </div>
-        <div class="hidden lg:flex lg:gap-x-12" x-data="{ open: false }">
-            @foreach ($categories as $category)
-                <a href="{{ route('posts.category',$category)}}" class="text-sm font-semibold leading-6 text-gray-900">{{$category->name}}</a>
-            @endforeach
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            
+            <img src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.1395880969.1709902800&semt=sph" alt="Logo" width="75" height="75">
+        </a>
 
-            @can('admin.home')
-            <a href="{{route('admin.home')}}" class="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                @foreach ($categories as $category)
+                <li class="nav-item">
+                    <a href="{{ route('posts.category', $category) }}" class="nav-link">{{ $category->name }}</a>
+                </li>
+                @endforeach
+
+                @can('admin.home')
+                <li class="nav-item">
+                    <a href="{{ route('admin.home') }}" class="nav-link text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
+                </li>
+                @endcan
+
+            </ul>
           
-            @endcan
-            
-            
-
             <form method="POST" action="{{ route('logout') }}" x-data>
                 @csrf
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900" href="{{ route('logout') }}"
-                    @click.prevent="$root.submit();">
-                    {{ __('Log Out') }}</a>
+                <button type="submit" class="btn btn-link text-sm font-semibold leading-6 text-gray-900">
+                    {{ __('Log Out') }}
+                </button>
             </form>
         </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="/" class="-m-1.5 p-1.5">
-                <span class="sr-only">Your Company</span>
-                @auth
-                    <a href="{{ route('profile.show') }}">
-                        <img class="h-8 w-8 rounded" src="{{ auth()->user()->profile_photo_url }}" alt="User Profile">
-                    </a>
-                @else
-                    <a      href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900"><strong>Log in
-                        </strong></a>
-                    <span>&nbsp;</span>
-                    <a href="{{ route('register') }}" class="text-sm font-semibold leading-6 text-gray-900">
-                        <p>Sign up </p>
-                    </a>
-                @endauth
-            </a>
-
-        </div>
-    </nav>
-    <!-- Mobile menu, show/hide based on menu open state. -->
-    <div class="lg:hidden" role="dialog" aria-modal="true">
-        <!-- Background backdrop, show/hide based on slide-over state. -->
-        <div class="fixed inset-0 z-10"></div>
-        <div
-            class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-            <div class="flex items-center justify-between">
-                <a href="#" class="-m-1.5 p-1.5">
-                    <span class="sr-only">Your Company</span>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                        alt="">
-                </a>
-                <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-                    <span class="sr-only">Close menu</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="mt-6 flow-root">
-                <div class="-my-6 divide-y divide-gray-500/10">
-                    <div class="space-y-2 py-6">                       
-                        @foreach ($categories as $category)
-                        <a href="{{ route('posts.category',$category)}}" class="text-sm font-semibold leading-6 text-gray-900">{{$category->name}}</a>
-                    @endforeach                        
-                    </div>
-                    <div class="py-6">
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
-                            in</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-</header>   
+
+
+    <div class="d-flex flex-lg-grow-1 justify-content-end align-items-center">
+        <a href="{{ route('profile.show') }}" class="nav-link">
+            @auth
+            <img class="rounded-circle" src="{{ auth()->user()->profile_photo_url }}" alt="User Profile" width="48" height="48">
+            @else
+            <a href="{{ route('login') }}" class="btn btn-outline-dark"><strong>Log in</strong></a>
+            <a href="{{ route('register') }}" class="btn btn-outline-dark">
+                 <strong>Sign up</strong>
+            </a>
+            @endauth
+        </a>
+        
+    </div>
+
+
+
+</nav>

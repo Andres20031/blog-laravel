@@ -33,13 +33,18 @@ class RoleController extends Controller
     {
         $request->validate([
             'name' => 'required'
-            
         ]);
-        $role =  Role::create($request->all());
-        $role->permissions()->sync($request->permissions);
-        return redirect()->route('admin.roles.edit', $role)->with('info','el rol se creo con exito');
+    
+        $role = Role::create($request->all());
+        $selectedPermissions = $request->input('permissions', []);
+    
+        // Asignar permisos seleccionados
+        $role->permissions()->sync($selectedPermissions);
+    
+        
+        return redirect()->route('admin.roles.edit', $role)->with('info', 'El rol se creó con éxito');
     }
-
+    
     /**
      * Display the specified resource.
      */

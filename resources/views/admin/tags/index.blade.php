@@ -3,7 +3,7 @@
 @section('title', 'Blog')
 
 @section('content_header')
-    @can('admin.users.index')
+    @can('admin.tags.create')
         <a class="btn btn-primary btn-sm float-right" href="{{ route('admin.tags.create') }}">Nueva Etiqueta</a>
     @endcan
     <h1>Listar las etiquetas</h1>
@@ -28,13 +28,13 @@
                         <td>{{ $tag->id }}</td>
                         <td>{{ $tag->name }}</td>
                         <td width="10px">
-                            @can('admin.users.index')
+                            @can('admin.tags.edit')
                             <a class="btn btn-primary btn-sm" href="{{ route('admin.tags.edit', $tag) }}">Editar</a>
                             @endcan
                             
                         </td>
                         <td width="10px">
-                            @can('admin.users.index')
+                            @can('admin.tags.destroy')
                             <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST">
                                 @csrf
                                 @method('delete')

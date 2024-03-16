@@ -27,7 +27,4 @@
     @enderror
 </div>
 
-<div class="form-group">
 
-    {!! Form::select('color', $colors, 'red', ['class' => 'form-control', 'style' => 'display: none;', 'id' => 'hiddenColorInput']) !!}
-</div> 

@@ -19,6 +19,7 @@ class RoleSeeder extends Seeder
         // crea otro rol en la base de datos  con el nombre bloger y asigna  el objeto de rol resultante a la variable role2     
         $role2 = Role::create(['name' => 'Bloger']);
 
+
         //Crea otro permiso en la base de datos con el nombre admin.categories.index y los sincroniza con los roles admin y bloger este permiso los sincroniza con la vista de el administrador
         Permission::create(['name' => 'admin.home','description'=>'Ver el dashboard'])->syncRoles([$role1,$role2]);
 

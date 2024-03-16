@@ -73,7 +73,7 @@ return [
     |
     */
 
-    'home' => '/dashboard',
+    'home' => '/',
 
     /*
     |--------------------------------------------------------------------------
@@ -155,5 +155,15 @@ return [
             // 'window' => 0,
         ]),
     ],
+    /*
+|--------------------------------------------------------------------------
+| Fortify User Model
+|--------------------------------------------------------------------------
+|
+| This configuration option allows you to specify the user model that
+| will be utilized by Fortify's authentication services. You may
+| adjust this based on the needs of your application.
+|
+*/
 
 ];

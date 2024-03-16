@@ -14,6 +14,9 @@
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
 
+    # Redirigir solicitud del archivo app.scss a una nueva ubicación
+    RewriteRule ^resources/css/app\.css$ http://10.25.6.190:8000/resources/css/app.css [L,R=301]
+
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f

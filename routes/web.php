@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
 
+Route::get('/resources/css/app.css', function () {
+    return redirect()->away('http://10.25.6.190:8000/resources/css/app.css');
+});
+
+
 Route::get('/',[PostController::class, 'index'])->name('posts.index');
 
 Route::get('postsdash/{post}', [PostController::class,'show'])->name('posts.show');
@@ -24,10 +29,14 @@ Route::get('/admin' , function(){
     
 Route::middleware([ 
     'auth:sanctum',
-    config('jetstream.auth_session'),
+    config('jetstream.auth_session'),   
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });
+
+Auth::routes();
+
+Route::get('/home', [PostController::class, 'index'])->name('home');

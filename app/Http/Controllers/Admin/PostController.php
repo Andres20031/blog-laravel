@@ -34,20 +34,31 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-       
-       $post = Post::create($request->all());
-       if ($request->file('file')) {
-          $url = Storage::put('public/posts', $request->file('file'));
-
-          $post->image()->create([
-            'url' => $url
-          ]);
-       }
-       if($request->tags)
-       {
-          $post->tags()->attach($request->tags);
-       }
-       return  redirect()->route('admin.posts.edit',$post);
+        $post = Post::create($request->all());
+    
+        if ($request->file('file')) {
+            $file = $request->file('file');
+    
+            // Obtener el nombre del archivo
+            $fileName = $file->getClientOriginalName();
+    
+            // Almacenar en la carpeta storage/app/public/posts
+            $file->storeAs('public/posts', $fileName);
+    
+            // Crear la relación en la base de datos con la ruta original
+            $post->image()->create([
+                'url' => 'public/posts/' . $fileName
+            ]);
+    
+            // Copiar el archivo a la carpeta public/storage/posts
+            Storage::copy('public/posts/' . $fileName, 'public/storage/posts/' . $fileName);
+        }
+    
+        if ($request->tags) {
+            $post->tags()->attach($request->tags);
+        }
+    
+        return redirect()->route('admin.posts.edit', $post);
     }
 
     /**     
