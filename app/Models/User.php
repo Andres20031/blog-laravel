@@ -10,25 +10,15 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
-use LdapRecord\Laravel\Auth\LdapAuthenticatable;
-use LdapRecord\Laravel\Auth\AuthenticatesWithLdap;
 
-
-class User extends Authenticatable implements LdapAuthenticatable
+class User extends Authenticatable
 {
-    use AuthenticatesWithLdap;
     use HasRoles;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
-    use Notifiable;
-
-    public function validarip($ip)
-    {
-        return $this->ip_address === $ip;
-    }
 
     /**
      * The attributes that are mass assignable.
@@ -70,7 +60,8 @@ class User extends Authenticatable implements LdapAuthenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-    //Relacion de uno  a muchos
+
+    // Relación de uno a muchos
     public function posts()
     {
         return $this->hasMany(Post::class);
@@ -80,7 +71,4 @@ class User extends Authenticatable implements LdapAuthenticatable
     {
         return $this->hasMany(Comments::class);
     }
-
-    
- 
 }

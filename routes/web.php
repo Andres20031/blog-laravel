@@ -5,9 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
 
-Route::get('/resources/css/app.css', function () {
-    return redirect()->away('http://10.25.6.190:8000/resources/css/app.css');
-});
 
 
 Route::get('/',[PostController::class, 'index'])->name('posts.index');
@@ -37,6 +34,6 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Auth::routes();
+
 
 Route::get('/home', [PostController::class, 'index'])->name('home');
