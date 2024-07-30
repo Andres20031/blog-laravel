@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand" href="/">
 
-            <img src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.1395880969.1709902800&semt=sph"
+            <img src="https://marketplace.canva.com/EAFYOuP8JZY/1/0/1600w/canva-free-simple-modern-circle-design-studio-logo-O1RnI0wALgo.jpg"
                 alt="Logo" width="75" height="75">
         </a>
 
@@ -33,9 +33,6 @@
                 @endif
             </ul>
         </div>
-
-
-
     </div>
 
 
@@ -51,7 +48,6 @@
                 </a>
             @endauth
         </a>
-
     </div>
 
 

@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody> 
                     @foreach ($categories as $category)
                         <tr>
                             <td>{{ $category->id }}</td>
@@ -38,7 +38,6 @@
                                     <a class="btn btn-primary btn-sm"
                                         href="{{ route('admin.categories.edit', $category) }}">Editar</a>
                                 @endcan
-
                             </td>
                             <td width="10px">
                                 @can('admin.categories.destroy')
@@ -48,7 +47,6 @@
                                         <button type="submit" class="btn btn-danger btn-sm">eliminar</button>
                                     </form>
                                 @endcan
-
                             </td>
                         </tr>
                     @endforeach

@@ -4,6 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <form action="{{ route('set.locale') }}" method="POST">
+        @csrf
+        <select name="locale" onchange="this.form.submit()">
+            <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
+            <option value="es" {{ app()->getLocale() == 'es' ? 'selected' : '' }}>Español</option>
+            <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>Français</option>
+        </select>
+    </form>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

@@ -15,16 +15,16 @@ return [
 
     'default' => env('LDAP_CONNECTION', 'default'),
 
-    /*
-    |--------------------------------------------------------------------------
-    | LDAP Connections
-    |--------------------------------------------------------------------------
-    |
-    | Below you may configure each LDAP connection your application requires
-    | access to. Be sure to include a valid base DN - otherwise you may
-    | not receive any results when performing LDAP search operations.
-    |
-    */
+        /*
+        |--------------------------------------------------------------------------
+        | LDAP Connections
+        |--------------------------------------------------------------------------
+        |
+        | Below you may configure each LDAP connection your application requires
+        | access to. Be sure to include a valid base DN - otherwise you may
+        | not receive any results when performing LDAP search operations.
+        |
+        */
 
     'connections' => [
 
@@ -42,7 +42,6 @@ return [
                 // 'mech' => 'GSSAPI',
             ],
         ],
-
     ],
 
     /*

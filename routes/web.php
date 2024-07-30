@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Api;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+
+
 
 
 
@@ -18,6 +21,10 @@ Route::get('tag/{tag}', [PostController::class, 'tag'])->name('posts.tag');
 Route::post('postsdashcomment/{post}/{user}', [PostController::class, 'comment'])->name('post.comment');
 
 Route::get('postscomment/{post}', [PostController::class, 'commentshow'])->name('post.commentshow');
+
+Route::get('/PostApi',[Api::class, 'consumeApi'])->name('posts.api');
+
+Route::post('/set-locale', [App\Http\Controllers\LocaleController::class, 'setLocale'])->name('set.locale');
 
 Route::get('/admin' , function(){
     return view('posts.admin');
